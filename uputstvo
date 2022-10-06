@@ -1,0 +1,24 @@
+klasa ima prednost u odnosu na selektor (h1) id ima predonst u odnosu na klasu(.) ID --> KLASA --> SELECTOR
+
+Margina sluzi da pomjeri kompletan selektor
+
+Padding sluzi da skrati prazan prostor izmedju pocetka selektora i teksta.
+
+fixed uzima u obzir kompletnu stranicu i na osnovu toga se ugnijezdi
+absolute prekriva sav prostor njegovor roditelja
+relativ ili static zauzima zasebno mjesto
+
+Kada pravimo main min-hight: calc(100vh) ukupnu visinu - visina elementa - pading - margina
+
+FLEX : 
+
+display:flex (da bi ga primijenii i da bi sve iz tog div-a stavili pod tim elementom)
+flex-direction: row/column ("-reverse" redja otpozadi)
+flex-wrap: wrap (nowrap-defoult) kada suzavamo stranicu on kada dodje do elemeta stavlja ga u novi red umjesto da njega samom smanji ili predje preko njega
+align-items: center (vertical-aling) start i end (pocetak i kraj)
+align-content: center;
+justify-content: flex-start;
+
+
+  /* align-self: flex-start;  po vertikali ide gore-dolje */
+  /* order: 1;  taj element prelazi na kraju jer ide od lijevo ka desno (defoult je "0"), (-1 na pocetku) */

@@ -1,0 +1,56 @@
+/*  */
+
+* {
+  box-sizing: border-box; /* kada se smanjuje ekran da oblik ostane isti */
+}
+
+.kartice {
+  text-align: center; /* tekst u cijeloj sekciji da bude po sredini */
+}
+
+.kartica { /* tag za svaku karticu */
+  background: brown;
+  color:black;
+  display: inline-block; /* sve kartice da budu u liniji */
+  margin: 8px;
+  padding: 16px;
+  width: 30%; /* da se rasire po ekranu */
+  vertical-align: middle; /* svi da budu poredjani tako da im sredina bude u istoj liniji */
+}
+
+.kartica-recommended {
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.5);
+}
+
+.recommended {
+  background: white;
+  color:brown;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.5); /* lijevo desno gore dolje boja prozirnost */
+  padding: 8px; 
+  border-radius: 9px; /* zaobljene ivice */
+}
+
+.kartica-niz {
+  list-style: none; /* ukloniti tackice */
+  margin-bottom: 15px; /* povecana margina zbog izgleda i odvojiti od tastera*/
+  padding: 0; /* razmak default da bi bio nula odnosno da bi bili u ravni */
+}
+
+.kartica-niz li { 
+  padding: 3px 0; /* razmak izmedju teskta li gornji i donji*/
+}
+
+.dugme-kartica {
+  border: 2px solid brown; /* debljina linije puna linija boja ivice */
+  border-radius: 9px;
+  background: white;
+  color: brown;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.dugme-kartica:hover,
+.dugme-kartica:active {
+  color: white;
+  background: brown;
+}

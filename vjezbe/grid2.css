@@ -1,0 +1,31 @@
+.container {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 10rem);/* auto-fit popunjava cijeli prostor tako sto imitira end, rucno kreiranje kolona, aut0-fill (znaci da prebacimo u novu kolonu iz reda cim se oslobodi mjesto odnosno cim se poveca velicina ekrana, vazi za sve i sve ce imate velicinu 10rem) */
+    grid-template-rows: 20rem; /* rucno kreiranje redova */
+    justify-content: center;
+    grid-gap: 1.5rem; /* margine izmedju */
+    grid-auto-rows: minmax(8rem, auto); /*(velicina redova) minimalno do 8rem max ove druge auto koliko teksta ima*/
+    grid-auto-flow: row dense; /* ne moze dodati nove stavke kao nove kolone, umjesto toga dodaje nove redove. definise gdje dodati nove stavke (row) namjena za telefon */
+    /* dense znaci da se ne prati pravilo redosleda nego da prvi sledeci zauzme prazno mjesto koje zbog velicine njeogovog podrazumijevanog mjesta nije mogao stati (koristiti kada ocesmo da osiguramo da nema praznih mjesta) */
+    grid-auto-columns: 5rem; /* kada se doadju nove kolone bice sirine 5rem */
+}
+
+.quote {
+  border: 1px solid #fa923f;
+  background: #ffbd87;
+  font-family: sans-serif;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.quote:nth-of-type(2) { /* nth-of-type(2) - druga po redu quote */
+  grid-column: span 2; /* kolonq 2 reda */
+
+}
+
+.quote--featured {
+  border: #ff4213;
+  background: #ff9f87;
+  grid-column: span 2;
+}

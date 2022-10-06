@@ -1,0 +1,36 @@
+.container {
+    position: relative;
+    margin: 150px auto;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px; /* mora na vrhu da stoji, obavezno rotaciju upaliti da bi se vidio efekat (sa manjim pikselima se povecava slika) zakrivi sliku kao da gledamo iz ugla */ 
+    perspective-origin: 500px; /* promijenjena pespektiva gledanja sa funkcije iznad */
+    transform: rotateY(130deg); /* rotirati kompletan kontejner bocno, komponenete nestaju zajednos a kont */
+    transform-style: preserve-3d; /* ako se rotira kontejner 3d polozaj djece je sacuvan */
+}
+
+.box1 {
+    position: absolute;
+    background: red;
+    width: 100%;
+    height: 100%;
+    transform:  rotateX(0deg) /* rotira se tako sto se naginje odozgo na dolje */
+                rotateY(80deg) /* okrece se bocno odnosno rotira sa lijeva na desno */
+                rotatez(0deg); /* okrece sliku vertikalno sa odozgo na gore kao zvijezda  */
+    color:white;
+    text-align: center;
+    backface-visibility: visible; /* ako se rotiras i okreces ledja nestani hidden */
+}
+
+.box2 {
+    position: absolute;
+    background: blue;
+    width: 100%;
+    height: 100%;
+    transform:  translateX(1rem) /* lijevo-desno, skroz se pomjera */
+                translateZ(-15rem) /* "osa koja izlazi iz ekrana" 3D zavisi od perspektive origin */ ;
+                /*transformY();  pada */
+    color:white;
+    text-align: center;
+}

@@ -1,0 +1,73 @@
+.container {
+    margin: 20px;
+    display: grid; /*grid koji oponasa block, a flex oponasa inlone-block*/
+    grid-template-columns:/*[hd-start]*/ repeat(4,[pocetakcolum] 20% [krajcolum]) /*[hd-end]*/; /* broj kolona (4 puta po, 25%) */
+    /*grid iznad sa repeat oznaceni su pocetak i kraj a brojevi izmeju (1,2,3,4) oznacavaju redni broj ponavljanja*/
+    /* hd oznava u ovom slicaju start i end od columns i start i end od row. Momentalno dobija svoja polja */
+    height: 800px;
+    /* grid-template-columns: 150px 70px 80px 1fr;  ubacuje ih iz row u colon i dodaje im velicine 1, 2, 3 */
+    /* fr oznacava da taj element zauzme sav preostali prostor koji je ostao od fiksnih velicina, 2fr uzima duplo veci prostor od 1fr po uslovom da jos ima fr elemenata */
+    /* auto zauzima samo onolino prostora koliko je potrebno, ili ako je sve vec definisano zauzima sav prostor preostali */
+    /*grid-template-rows: 5rem auto ;  prva duzina dje su elemti i druga ispod nje koja je prazna */
+    grid-template-rows:/*[hd-start]*/ [prvi] 5rem [/*hd-end*/ drugi] minmax(10px, 20rem) [treci] 150px; /*[samo davanje imena] oredjivanje velicine redova rows*/
+    /* grid-column-gap: 20px;
+    grid-row-gap: 20px; imitacija margina (odvojiti elemente) */
+    grid-gap: 10px; /*  kao margine prave razmak, row column (ako je samo jedna vrijednosti bice za oboje{rowcolumn})*/
+    grid-template-areas:    "header header header header" /* imenovanje reda i kolona */
+                            ". side main main" /* grid-area: header - za imenovanje samih redova/kolona */
+                            "footer footer footer footer"; 
+
+    justify-items: stretch; /* defoult (po duzini) - moze biti star end centar (odnosno podesavanje gdje ce da pocinju elemeti u kontejneru i zauzimaju onoliko koliko ima text-a unutra)*/
+    align-items: stretch; /* defoult - popunjava komplet polje (po visini) -//- */ 
+    /*justify-content: stretch; cijeli kontejner prebaciti na sredinu (po duzini) */
+    /*align-content: stretch; cijeli kontejner prebaciti na sredinu (po visini) */
+}
+
+@media (max-width: 40rem) { /* ako predje ispod 40rem iskoristi: */
+    .container {
+    grid-template-rows: [prvi] 5rem [drugi] minmax(10px, 20rem) [treci] 150px [cetvrti] 100px;
+    grid-template-areas:    "header header header header" /* kada se smanji slika da ono sto je bilo u koloni premjesti u red */
+                            "main main main main" /* zbog toga se dodje jedan novi blok u novom redu i ide jedno ispod drugog */
+                            "side side side side"
+                            "footer footer footer footer"; 
+    }
+}
+
+.el1 {
+    background: rgba(255, 154, 72, 0.5);
+    /* grid-column: pocetakcolum 2 / krajcolum 2; */
+    grid-area: side;
+}
+
+.el2 {
+    background: rgba(255, 0, 0, 0.5);
+    /*grid-column-start: 1; 
+    grid-column-end: -1;  -1 znaci da ide do kraja ? */
+    /* --------- grid-column: 1/-1;  ovo zamijenjuje start i end */
+    /* --------- grid-row: drugi/span 1; start-end*/
+    /* grid-row-start: drugi;
+    grid-row-end: span 1; */
+    z-index: 10;
+    grid-area: main;
+    /* justify-self: center;
+    align-self: center; */
+
+    /*grid-area:drugi/1/span 1/-1; row start, column start, row end, column */
+}
+
+.el3 {
+    background: rgba(0, 128, 0, 0.5);
+    /*grid-column-start: 2;
+    grid-column-end: span 3; span - koliko ce redova da zauzme*/
+    /* grid-column: 2/span 3;
+    grid-row: prvi/treci; */
+    /* grid-area: prvi/2/treci/span 3; row start, column start, row end, column*/
+    /* grid-row-start: prvi;
+    grid-row-end: treci;  */
+    grid-area: header;
+}
+
+.el4 {
+    background: rgba(0, 4, 255, 0.5);
+    grid-area: footer;
+}

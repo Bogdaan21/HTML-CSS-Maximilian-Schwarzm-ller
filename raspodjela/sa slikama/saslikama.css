@@ -1,0 +1,7 @@
+.mjesto-za-sliku {
+  font-family: Verdana, Geneva, Tahoma, sans-serif cover; /* font za text unutar sekcije za slike */
+  background: url("./freedom.jpg") left 0 bottom 30%; /* url za sliku koja se nalazi u istom folderu */
+  padding: 30px; /* koliko je tekst odvojen od ivice */
+  height: 900px; /* visina slike */
+  margin: 0;
+}

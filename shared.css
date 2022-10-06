@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap,:900,ital'); /* dodavanje fonta preko css-a */
+@import url('https://fonts.googleapis.com/css2?family=Anton|Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'); 
+
+* { 
+  box-sizing: border-box; /* padding i border se uracunavaju u velicinu polja ali ne i margine (ova komanda to izracunava) */
+}
+
+html {
+  height: 100%; /* podeseno da bi html zauzeo cijelu stranicu i mora da se slaze visina body-a da bi body to stvarno zauzeo */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 3.5rem auto fit-content(8rem); /* prvi red je auto(zauzima onoliko koliko sadrzaj u njoj to trazi to je ustb body) fit-content 8rem visina footer-a (8rem se koristi ako je sadrzaj manji ili zahtijeva manje prostora u suprotnom dobija mjeru koja je potrebna za sadrzan nesto kao (auto)) */
+  grid-template-areas: "header" "main" "footer"; /* drugi nacin (imenovanje redova"row" */
+  height: 100%; /* visina body zazuima cijelu duzinu, mora da se slaze sa visinom html-a gore odnosno cijelom stranicom (koristi se da bi zalijepio footer) */
+  /* padding-top: 3.5rem;  spustem body (ne znam iz kog razloga) */
+}
+
+.backdrop {
+  position: fixed; /* da bi je razvukli na cijeli viewport */
+  z-index: 100;
+  display: none; /* zadrzan zbog javascript */
+  opacity: 0;/* display: none;  da nestane sa diplay-a odnosno da se ne prikazuje jos (privremeno) */
+  height: 100%; /* vmax vmin */
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top:0; /* granica gornja 0 (nema je) ide do kraja */
+  bottom: 0; /* granica donja 0 (nema je) ide do kraja */
+  transition: opacity 0.2s linear; /* zakasnjenje zbog izgleda da se zamraci posle 2s dodajemo kao display style u JAVASCRIPT */
+}
+
+main {
+  /* min-height: calc(100vh - 1rem - 8.125rem);  minimalna visina jednaja full visina - visina nav bar -  visina futera da bi futer zalijepio za dno (izracunao duzinu bez header-a i footera */
+  /*  margin-top: 3rem;  zato sto je margina slike gore na 2.5rem kada je odje unesemo mozemo da se oslobodimo nje u sektoru za sliku (spustamo body od header-a)*/
+  grid-row: main;
+}
+
+.main-header {
+  width: 100%; /* zauzima citavu duzinu */
+  height: 4rem;
+  background: black;
+  padding: 0.5rem 1rem;
+  top: 0; /* da bi bili sigurni da je zalijepljeno za vrh */
+  left: 0; /* da bi bili sigurni da je zalijepljeno lijevo */
+  position: fixed; /* traka za navigaciju fiksirana za vrh ali nije ugnijezdena, ona ne zavisi od ni jednog elementa nego se fiksira na osnovu Viewport (cijelim html-om) */
+  z-index: 1; /* staviti header da bude iznad svih elemenata */
+  display: flex;
+  align-items: center; /* elementi u selektoru da budu cetrirani po visini (top.bottom) */
+  justify-content: space-between; /* razdvaja ga na maksimum jedan od drugog */
+}
+
+
+.button_choose {
+  color:white;
+  background: rgb(58, 5, 5);
+  border-radius: 9px;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer; /* kada se predje pojavi se klik */
+  font:inherit; /* Naslijedio je font */
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.button_choose:hover,
+.buttom_choose:active {
+  opacity: 0.8;
+  transition: opacity 1.35s;
+  background: white;
+  color: rgb(58, 5, 5);
+}
+
+.button_choose[disabled] { /* u html-u akitivrati ovu funkicju kako bi takav selektor dobio te osobine */
+  cursor: not-allowed;
+  border-color: #ccc !important; 
+  background: #ccc;
+
+}
+
+.toggle-button {
+  display: none;
+  width: 3rem;
+  background: transparent; /* nema pozadine ?*/
+  border: none;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__bar {
+  width: 100%;
+  height: 0.2rem;
+  background: white;
+  display: block;
+  margin: 0.6rem 0;
+}
+
+/*.main-header > div {
+  display: inline-block;  Svaki redom slektor mora da ide u inline da bi stajali u istoj liniji 
+  vertical-align: middle;
+}*/
+
+/*.main-nav {  Mora postojati nav da bi mogao da glumi navigation-bar */
+  /* text-align: right;  guraj tekst na desnu stranu */
+  /* width: calc(100% - 86px);  Pomjera ako stoji lijevo put desne strane sa ovim -px */
+  /* vertical-align: middle;
+}*/
+
+@media (max-width: 40rem) { /* ako ode ispod 40rem primijenjuje se ovo ispod */
+  .main-header {
+    justify-content:start;
+  }
+  .main-nav {
+    display: none;
+  }
+  .toggle-button {
+    display: inline-block;
+  }
+}
+
+.nav-item {
+  margin: 0 0.625rem;
+}
+
+.nav-items {
+  display: flex; /* flex mora da se stavi u bloku u kome se nalaze elemti koje treba sloziti */
+  padding: 0;
+  width: 100%;
+}
+
+.main_header_name {
+  color:brown;
+  text-decoration: none;
+  font-weight: bold;
+  /* font-size: 1.5rem;  */
+  /*height: 2.5rem;  odrediti velicinu elementa koji je dolje stavljen da bude prkazan u originaloj velicini */
+  /* display: inline-block;  postaviti da budu u istoj linija bloka kao i ostali elementi ugnijezditi ga */
+  /* vertical-align: middle;  postavljen po sredini */
+}
+
+.main_header_name img { /* odabir slike u html-u */
+  height: 2.5rem ; /* podesiti sliku da 100% koristi originalnu velicinu (moguce) */
+  vertical-align: middle;
+}
+
+.nav-item > a, /* Svaki <a> koji se nalazi u klasi .nav-item */
+.mobile-nav__item a {  /* dodjeljivanje istih specifikacija kao na obicnoj navigaciji */
+  text-decoration: none;
+  color:brown;
+  font-weight: bold;
+  padding: 0.2rem 0;
+
+}
+
+/* .nav-item a::after { " nesto sto se nalazi pored teksta "content" je ustv tekst "
+  content: "(Link)"; 
+  color: black;
+}*/
+
+.nav-item a:hover,
+.nav-item a:active,
+.mobile-nav__item:hover,
+.mobile-nav__item:active { /* Pseudo klasa */
+  opacity: 0.8;
+  color: white;
+  border-bottom: 5px solid white;
+}
+
+/* p::first-letter {  prvo slovo teksta 
+  color: red;
+  font-size:20px;
+} */
+
+.nav-item-special,
+.mobile-nav__item--cta { /* oznaciti polja koja zelis da se animiraju (ne moze sve da se animira) */
+  animation: wiggle 400ms 2s 5 ease-out none; /* pozivanje funkcija/trajanje/kasnjenje/reproduktovati koliko puta nakon sto se pokrene*/
+  /*forwards - zavrsava u iskrivljenom stanju*/
+  /*backwards - krene i vrati se u pocetnos tanje */
+  /*both pocinje iskrivljen sa jedne strane zavrsava se sa druge */
+}
+
+.nav-item-special a, /*dodata klasa jedna pored druge da bi pokupio sva svojstva prethone, u css se kuca samo novi naziv pored postojeceg*/
+.mobile-nav__item--cta a { 
+  color:white;
+  background: brown;
+  padding: 0.5rem 1rem;
+  border-radius: 9px;
+}
+
+.nav-item-special a:hover,
+.nav-item-special a:active,
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta a:active {
+  border: none;
+  color:brown;
+  background: white;
+}
+
+.main-footer {
+  background: black;
+  color:white;
+  padding: 2rem;
+  margin-top: 3rem;
+  /* grid-row: 3/4; */
+  grid-area: footer;
+}
+
+.main-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* aktivirati flex, staviti sve u inline */
+  justify-content: center; /* iteme staviti na sredina */
+}
+
+.main-footer__link {
+  margin: 0 1rem;
+}
+
+.main-footer__link a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-footer__link a:hover,
+.main-footer__link a:active {
+  color: #ccc;
+}
+
+@media (max-width: 40rem) {
+  .main-footer__links {
+    flex-direction: column; /* iteme staviti u koloni jedan ispod drugog */
+    align-items: center; /* poredjati iteme u centar */
+  }
+}
+
+.mobile-nav {
+  transform: translateX(-100%);
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 80%;
+  height: 100vh;
+  transition: transform 300ms ease-out;
+}
+
+.mobile-nav__items {
+  width: 90%;
+  height: 100%;
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  display: flex;  /* dodata opcija flex */
+  flex-direction: column; /* poredjano u koloni jedan ispdo drugog */
+  justify-content: center; /* staviti item na sredini vertikalo jedan ispod drugog */
+  align-items: center; /* poravnati texst kao piramida da bude u sredini */
+}
+
+.mobile-nav__item {
+  margin: 1.5rem 0;
+}
+
+.mobile-nav__item a {
+  font-size: 1.5rem;
+}
+
+.open { /* koristi se za javascript */
+  display: block !important; /*(samo za sivu povrsinu) important zato sto main.css klasa ima predonost u odnosu na ovu "share" jer je ispred nje, daje mu apsolutni prioritet u odnosu na sve */
+  opacity: 1 !important; /* opacity:1 imitira display:block samo za block sa pitanjem*/
+  transform: translateY(0) !important; /* zaustavlja se na poziciju 0 (pozicija koja mu je podesena "marginama" */
+}
+
+@media (max-width: 40rem) {
+  .main-footer {
+    padding: 2rem;
+    flex-direction: row;
+  }
+  .main-footer__link {  
+    margin: 0.5rem 0; /* razmak izmedju gornjih ivica*/
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(10deg);
+  }
+}

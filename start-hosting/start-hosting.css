@@ -1,0 +1,94 @@
+main {
+  font-family: 'DynaPuff', cursive;
+  padding-top: 1rem; /* odvojiti od vrha */
+}
+
+.signup-title {
+  color: brown;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.signup-form {
+  padding: 1rem; /* pading zbog uljepsavanja */
+  display: grid;
+  grid-auto-rows: 2rem; /* visina row-a */
+  grid-row-gap: 0.5rem; /* razmak izmedju polja (nesto kao margine za svakog posebno) */
+}
+
+.signup-page label,
+.signup-page input,
+.signup-page select {
+  /* padding-top: 0.3rem; */
+  display: block; /* da budu jedni ispod drugih */
+  width: 100%; /* puna velicina direktno na polja pa ce se kasnije smanjiti */
+  /* margin:0.3rem auto;  gornja margina 1rem, sa strane postavljeno na sredinu (auto) */
+  font-weight: bold; 
+}
+
+.signup-form input[id*="terms"], /* cekirao sam input sa nazivom terms u svom ID-u */
+.signup-form input[id*="terms"] + label { /* cekirao sam isto to + label */
+  display:inline-block; /* postaviti ih u liniji cekbox i href */
+  width: auto; /* sirina se prolagodjava stvarnoj sirini elementa */
+  vertical-align: middle;
+}
+
+.signup-form input:not([type='checkbox']), /* svi ulazi koji nisu tipa:chackbox dobice ove stilove */
+.signup-form select {
+  border: 1px solid #ccc;
+  padding: 0.1rem 0.5rem;
+  font:inherit /* opcija za koriscenje istog fonta kao i na ostatku stranice */
+}
+
+.signup-form input/*:not([type='checkbox'])*/:focus,
+.signup-form select:focus {
+  outline: none; /* ? */
+  background: rgba(204, 204, 204, 0.455);
+  border-color: #ccc;
+}
+
+.signup-form input[type="checkbox"] {
+  border: 1px solid #ccc; /* ivica chbox */
+  background: white; /* unutrasnjost chbox-a */
+  width: 1rem; /* sirina i visina */
+  height: 1rem;
+  -webkit-appearance: none; /* uklanja njegove podrazumijevane vrijednosti strik */
+  -moz-appearance: none; /* pomaze svim pregledacima da ne koriste svoj defoult */
+  appearance: none; /* uklanja strik takodje i jos ? */
+}
+
+.signup-form input[type="checkbox"]:checked {
+  background: brown;
+  border: brown;
+}
+
+.signup-form input.invalid, /* bira sve inpute koji su nevazeci, treba ga prebaciti na kraju da bi reagovao tek kad prepise sve ostale stilove */
+.signup-form select.invalid, /* .invalid (ako imamo klasu pod tim nazivom )*/
+.signup-form :invalid {  /* trebalo bi da sam provjerava type i da vidi kad ne ipuni uslove prijavi kao invalid (do tada u html-u dodajem klasu invalid) */
+  border: 2px solid red !important; /* zato sto gore vec imamo u input i da bude not: */
+}
+
+.signup-form button[type="submit"] {
+  display: block; /* stavljen ispod */
+  border: 1.5px solid brown;
+  padding: 1px;
+}
+
+
+@media (min-width: 40rem) {
+  .signup-form {
+    margin:auto; /* opcija da bi sve doslo na sredinu srazmjerno siniri dolje*/
+    width: 30rem; /* smanjiti sirinu forme kompletne koliko bude odgovarala kada predje 40rem*/
+    grid-template-columns: 10rem auto; /* dodijeliti dvije kolone i njigovu velicinu */
+    grid-row-gap: 1rem; /* razmak nesto kao margine */
+    grid-column-gap: 0.5rem;
+  }
+
+  .singup-form__checkbox {
+    grid-column: span 2;
+  }
+
+  .signup-form [id="title"] {
+    grid-column: span 2;
+  }
+}

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+}
+
+.main-header {
+  width: 100%; /* dodati cijelu duzinu */
+  background: #2ddf5c; /* boja pozadine */
+  padding: 8px 16px; /* odaljiti od margina duzinu visinu */
+  position: fixed; /* traka za navigaciju fiksirana za vrh ali nije ugnijezdena */
+  top: 0; /* da bi bili sigurni da je zalijepljeno za vrh */
+  left: 0; /* da bi bili sigurni da je zalijepljeno lijevo */
+}
+
+.main-header > div { /* direktno dijete div */
+   display: inline-block; /* div stoji dikrentno u liniji */
+   vertical-align: middle; /* poravnati po sredini header-a (BITNO) */
+}
+
+.main-header__brand {
+  color:#0e4f1f;
+  text-decoration: none; /* ukloniti svu dekoraciju */
+  font-weight: bold; /* boldovati */
+  font-size: 22px; /* velicina fonta */
+}
+
+.main-nav {
+  display: inline-block; /* dodati sa ostalima u inline */
+  width: calc(100% - 74px); /* podesiti duzinu */
+  text-align: right; /* pomjeriti text u desno */
+  vertical-align: middle; /* poravnati prema sredini */
+}
+
+.main-nav__items {
+  margin: 0; /* prilagoditi margine shodno duzini */
+  list-style: none; /* ukloniti tackice (stil) */
+}
+
+.main-nav__item {
+  display: inline-block; /* stavljen u liniji sa ostalim */
+  margin: 0 16px; /* razvojena duzina */
+}
+
+.main-nav__item a { /* ostali obicni */
+  text-decoration: none;
+  color: #0e4f1f;
+  font-weight: bold;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: white; /* boja text-a */
+    border-bottom: 5px solid white; /* debljina ivice, puna linija, boja */
+}
+
+.main-nav__item--cta a { /* izdvojeni li */
+  color: white;
+  background: #ff1b68;
+  padding: 8px 16px;
+  border-radius: 8px; /* zaokrugliti */
+}
+
+.main-nav__item--cta a:hover, /* ispravka za posebno oznaceni li */
+.main-nav__item--cta a:active {
+    color: #ff1b68;
+    background: white;
+    border: none;
+}

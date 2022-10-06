@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "AnonymousePro";
+  src: url(anonymousPro-Regular.ttf) format("truetype"); /* Jos jedan nacin pozivanje fonta koji je download-ovan i ubacen u folder packages */
+}
+
+@font-face { /* ovakvi primjeri se rijetko koriste */
+  font-family: "AnonymousePro";
+  src: url(anonymousPro-Bold.ttf) format("truetype"); /* obavezno mala slova jer moze izazvati probel na internet explorer-u */
+  font-weight: 700; /* Ako zelimo da primijenimo ovaj font kucamo ovu komandu */
+}
+
+main {
+  padding-top: 3.063rem;
+}
+
+.background-image {
+  background: url("../image/plans-background.jpg") center/cover; /* centrirati sliku na sredini i postaviti je da se vidi cijela (cover)*/
+  height: 100%; /* visina slike */
+  width: 100%; /* duzina slike */
+  position: fixed; /* fiksirana slika da se ne pomjera kada se skroluje. Bitno je i mjesto u html-u da bi se znalo odakle pocinje */
+  z-index: -1; /* postaviti sliku iza svih ostalih elementa zbog ovog "-" number je redni broj po kojem ce redu imati prioritet za prikaz */
+  filter: grayscale(30%); /* filter koji ptervara sliku u sivkastu */
+}
+
+.plan {
+  border: 5px solid rgb(165, 42, 42);
+  width: 80%; /* koliko ce da se prostire duzina */
+  margin: 1rem 0;
+  background: rgba(188, 143, 143, 0.95); 
+  font-family: 'DynaPuff', cursive;
+  border-left: 0; /* uklonjena border-left */
+  position: relative; /* da se u njoj objekti ponasaju kao u zasebnom bloku (jedino)  */
+  overflow: hidden; /* sve sto je u elementu a izlazi malo iz njegovih okvira se sakriva */
+}
+
+.plan:hover,
+.plan:active {
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.5);
+  /* border-color: rgb(77, 77, 77) !important; da bi se izbjeglo kucanje viska koga koristi se ova nardba da ga stavi kao prioritetan opis jer je id jaci od class */
+  border-color: rgb(77, 77, 77);
+}
+
+.plan-header {
+  color:black;
+}
+
+.recommended {
+  color:white !important;
+  position:absolute; /* zalijepljena za tu poziciju */
+  top:0; /* gornja granica */
+  right: 0; /* donja granica */
+  /* z-index: 0;  u ovom slucaju ne ide preko slike pozadinske koja je na -1 */
+  padding: 0.5rem;
+  background: brown;
+  font-size: 0.8rem;
+  margin: 0;
+  transform: rotate(45deg) translate(4.5rem, -2rem); /* roitrati ali ne pozicionirati, translate za pozicioniranje */
+  transform-origin: center; /* rotirano oko centra kutije (dalje podesavanje na X Y) */
+  width: 15rem; /* povecano da bi se uklipilo */
+  text-align: center; /* centrirano da bi se uklopilo  */
+}
+
+.plan a {
+  text-decoration: none;
+  display: block; /* klik zauzima cijelu sirinnu u kombinaciji sa ubacenim paddingom u svemu tome */
+  padding: 2rem; /* napravljen tako da href bude kompletan box kada god stavi hover na njega da se ukaze klik */
+}
+
+.plan h2 {
+  color: rgb(57, 57, 57);
+}
+
+.plan p {
+  text-decoration: none;
+  color:brown;
+  background: white;
+  border: 2px solid brown;
+  padding: 0.438rem;
+  font-family:"AnonymouseProB", Helvetica, sans-serif;
+  font-weight: 700; /* debljina slova ali prvo dodati u shere u fontove :900 :800 tako je za sve vrste fontova koji su dovedeni iz googl-a */
+  /* line-height: 1; visina reda- kao margin */
+  /* font-style: italic;  i ovo treba u inport za fontove da bi radilo */
+  /* text-shadow: 2px 2px 10px ; visina sirina zamucenost i boja */
+  /*font: font-stype font-variant font-weight font-size/line-height font-family (skracenica) */
+}
+
+#PLUS { /* overwrite za ove klase idu preko ID jer ima prednost u odnosu na class */
+  background: rgb(188, 143, 143, 0.95);
+}
+
+#FREE {
+  background: rgb(188, 143, 143, 0.95);
+  float: right; /* gurnuti ovaj slektor na desnu stranu tako da ovaj iza dolazi na njegovo mjesto i kaci i njega samog bez preslikavanja samo zabilazi tekst sliku ali smeta*/
+  border-right: none; /* jer nam na tu stranu border ne treba u ovom slucaju */
+  border-left: 5px solid brown; /* po defoulu-u na lijevu strane ne dodje border pa smo stavili ovaj slucaj kao izuzetak */
+  text-align: right; /* izuzetak od texta pomjeren na desnu stranu */
+}
+
+#FREE:hover,
+#FREE:active {
+  border-color: rgb(77, 77, 77);
+}
+
+#PREMIUM {
+  background: rgb(165, 42, 42, 0.95);
+}
+
+#PREMIUM .plan-header-premium {
+  color:white
+}
+
+.clearfix { /* u html-u je ovo prazan div koji dobija naredbu da zauzeme prostor da ne ide ovewrite preko njega ZA FLOAT u #FREE*/
+  clear: both; /* bukvalno staje izmejdu dva slektora i sluzi da se ne prilagodjavaju polozaju jedan drugome nego ih ovaj razdvaja */
+}
+
+@media (min-width: 40rem) {
+  main {
+    margin: 3rem auto; /* odmaknuto od vrha kada predje 40 3 rem zato sto je u shared u main isto toliko */
+    max-width: 1500px; /* maksimalna sirina sredine (main) */
+  }
+}
+
+@media (min-width: 40rem) {
+  .plan{
+    border-left: 5px solid brown;
+  }
+  #FREE {
+    border-right: 5px solid brown;
+  }
+}

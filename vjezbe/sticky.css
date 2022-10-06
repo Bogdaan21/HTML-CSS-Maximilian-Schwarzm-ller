@@ -1,0 +1,35 @@
+html {
+  margin: 20px;
+  padding: 10px;
+  border: 7px solid white;
+  background:silver;
+}
+
+body {
+  border: 5px solid black;
+  background:orangered;
+  padding: 20px;
+  margin: 20px;
+  height: 3000px;
+}
+
+.parent {
+  margin: 10px;
+  padding: 20px;
+  border: 5px solid black;
+  background: white;
+}
+
+.parent div {
+  border: 8px solid black;
+  background: rgb(46, 43, 43);
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.parent .child-1 { 
+  background: orange;
+  position: sticky; /* po defoul-tu zalijepljen, ali kada mu se doda zeljena pozicija top ostaje uvijek toliko odvojen od vrha dok ne izadje iz svog bloka odnosno roditrelja, tada nestaje */
+  top:0px;
+}

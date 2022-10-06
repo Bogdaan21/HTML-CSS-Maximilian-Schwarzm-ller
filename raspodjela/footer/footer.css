@@ -1,0 +1,33 @@
+body {
+  margin: 0; /* uklonjene margine da bi footer mogao da se zalijepi za dno */
+}
+
+.footer {
+  background: black;
+  margin-top: 100%; /* spustiti do dna */
+  padding: 28px; /* da bi bio na sredinu s obzirom da nema margina automacki ga stavlja na sredinu*/
+}
+
+.footer-lista {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-elemet {
+  color:white;
+  display: inline-block;
+  margin: 0 14px; /* razdvojiti text u duzini */
+}
+
+.footer-elemet a {
+  color:white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-elemet a:hover,
+.footer-elemet a:active {
+  color:#ccc;
+}

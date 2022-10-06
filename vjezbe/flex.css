@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  font-size: 1.5rem;
+}
+
+html {
+  background: #b3b3b3;
+  padding: 5px;
+}
+
+body {
+  background: #b3b3b3;
+  padding: 5px;
+  margin: 0;
+}
+
+.flex-container {
+  background: white;
+  padding: 10px;
+  border: 5px solid black;
+  height: 1300px;
+  display: flex; /* obican flex moze mijenjati velicinu elemenata dok INLINE-FLEX ne moze*/
+  flex-wrap: nowrap; /* nowrap defoult, wrap kada skratimo stranicu umjesto inline prelazi u novi red ispod i dobija svoju podrazumijevanu visinu */
+  flex-direction: row; /* column redja ih najslicijne block-u "-reverse" redja ih otpozadi "row" poredjati ih u inline */
+  align-items: center; /* Kao text-alingh:middle; "flex-start" stavke ce biti centrirane na pocetku / end na kraju  */
+  justify-content: flex-start; /* centriran po duzini koristeci prostor koji imamo ("start"-desno) ("end"-lijevo)*/
+  /* align-content: center;  gurnuti kontejner na sredinu bez centriranja elemenata u njemu "left" "rihgt" */
+}
+
+.item-1 {
+  background: #ff7300;
+  color: white;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+}
+
+.item-2 {
+  background: #ff9640;
+  color: white;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+  width: 250px;
+  font-size: 1.8rem;
+}
+
+.item-3 {
+  background: #ff9640;
+  color: white;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+  height: 250px;
+  /* align-self: flex-start;  po vertikali ide gore-dolje */
+}
+
+.item-4 {
+  background: #f5c096;
+  color: white;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+  width: 300px;
+  height: 300px;
+  /* order: 1;  taj element prelazi na kraju jer ide od lijevo ka desno (defoult je "0"), (-1 na pocetku) */
+}
+
+.item-5 {
+  background: #d3c0b1;
+  color: white;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+  width: 350px;
+  flex-basis: auto; /* odredjivanje piksela bazom (obavezno dodati flex-grow: 0(defoult); da bi fiksirali tu sirinu ? */
+  /* flex-grow: 1;  kada ih je vise sa istim brojem uzimaju jednake sirine */
+}
+
+.item-6 {
+  background: #d3c0b1;
+  color: white;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+  width: 350px;
+  /* flex-shrink: 0;  kada stoji 0 ne moze da se smanji sa smanjivanjem ekrana ne moze biti manji od zadate sirine kada stavimo 1 omogucujemo mu da se smanji*/
+  /* flex-shrink (kada jedan element stavimo 1 a drugi 4, i kada uzmemo da ih smanjujemo ovaj 4 ce vijek biti 4 puta manje smanjen nego prvi)*/
+}

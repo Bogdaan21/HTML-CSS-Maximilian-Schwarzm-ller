@@ -1,0 +1,272 @@
+.modal {
+  position: fixed; /* pozicija fiksna da bi mogla sa top left da se manipulise sa njom */
+  opacity: 0; /* imitira display:none */
+  transform: translateY(-3rem); /* za slowmotion ide odozgo ka dolje */
+  transition: opacity 200ms ease-out, transform 500ms ease-out; /* podesavanje milisekundi kuda ce da se krece blok koliko brzo */
+  /* ease-in 1s (sa kasnjenjem) pocinje brzo i zavrsava brze, bese-out pocinje brzo i zavrsava polako */
+  z-index: 200;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  min-width: 11.599rem;
+}
+
+.modal__title {
+  text-align: center;
+  margin: 0 0 1rem 0; /* odvojen div jedan do drugog */
+}
+
+.modal__actions {
+  text-align: center;
+}
+
+.modal__action {
+  border: 1px solid #0e4f1f;
+  background: #0e4f1f;
+  text-decoration: none;
+  color: white;
+  font: inherit; /* da bi blokovi u tasterima bili istih dimenzija */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.modal__action:hover,
+.modal__action:active {
+  background: #2ddf5c;
+  border-color: #2ddf5c;
+}
+
+.modal__action--negative {
+  background: red;
+  border-color: red;
+}
+
+.modal__action--negative:hover,
+.modal__action--negative:active {
+  background: #ff5454;
+  border-color: #ff5454;
+}
+
+@media (max-width: 40rem) {
+  .modal {
+    margin: auto;
+
+  }
+}
+
+#naslov {
+  background: linear-gradient(to top, rgb(80, 68, 18, 0.5) 10%, transparent ), url("image/freedom.jpg") center/cover no-repeat border-box; /* u donjem redu su pune naredbe, ovo je skracenice */
+  /* linear - (da ide ka vrhu, boja-prozirnost, na koliko posto slike ce da se ucitava granica */
+  font-family: 'Rubik Maze', cursive;;
+  /* background-image: url("freedom.jpg");
+  background-size: cover;  sa (auto) komplet slika ogriginalna (samo100%) da zauzeme cijelu povrsinu i otkice to sto je visak */
+  /* background-repeat: no-repeat;  podesiti da se slika ne ponavlja */
+  /* background-position: left 0 bottom 30%;  koliko posto odrezati lijevo koliko na vrhu da bi se vidjela kontra strana, (left,top) sabiti u taj ugao */
+  /* border: solid black 5px; */
+  /* border-style: solid; dashed isprekidana linija, soild puna linija */
+  /* border-color: black; */
+  /* border-width: 5px; */
+  /* background-origin: border-box;  postaviti sliku da se kopletno vidi bez margina i padding-a */
+  /* background-clip: border-box;*/
+  /* background-image: linear-gradient(180deg, red 70%, blue, rgba (0, 0, 0, 0.5)); - prelazak jedne boje u drugu vodoravno */
+  /* background-image: radial-gradient(180deg, red 70%, blue, rgba (0, 0, 0, 0.5)); - prelazak jedne boje u drugu u krugu */
+  height: 40vh; /* podesiti sliku tako da se smanjuje i povecava zajedno sa velicinom pretrazivaca i uradjaja. Ako zelimo da ostane fiksta koristimo piksele */
+  position: relative;
+  /* margin-top: 2.5rem;  da slika tacno upadne u kontejner da se ne podvlaci ispod header-a (u shared se oslobodii u main {}) */
+  /* background-size: 100px; - odraditi velicinu slike */
+  /* background-repeat: (repeat-x) - podesiti da se slika ponavlja samo u prvom redu */
+}
+
+/* .bodyofplans {
+  text-align: center;
+  width: 100%;  podesavanje sirine bloka kartica 
+} */
+
+.pravinaslov {
+  font-family: 'EB Garamond', serif;
+  color: white;
+  bottom: 1%;
+  left: 3%;
+  position: absolute; /* fiksira ga u poziciju njegovog roditelja i krece se pomocu kursora (top, left ... )*/
+  font-size: 1.5rem;
+}
+
+@media (min-width: 37rem) and (min-height: 40rem) {  /* uslov ako min sirina (i ako je portret) predje 40rem naslov uzima komande ispod KAO USLOV IF */
+  #naslov { /* vazno je da ovu uslovu budu ispod njihovih slektora navednih u njemu da bi se primijenili */
+    height: 40vh;
+    background-position: 50% 19%;
+  }
+  .pravinaslov {
+    font-size: 2.5rem;
+  }
+}
+
+.druginaslovtekst { 
+  color: black; 
+  font-family: 'DynaPuff', cursive;
+  text-align: center;
+}
+
+p {
+  color: black
+}
+
+.plan {
+  background: rgba(165, 42, 42, 0.408);
+  color:black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* text unutra ostaje na sredini */
+  margin:0.5rem 0;
+  padding: 1rem; 
+  width: 100%;
+  height: 100%; /* ovo su podesavanja za sve planove, dolje smo izmijenili izvdojeni zato sto ide ispod ovoga */
+}
+
+.plan-recommended {
+  background: brown;
+  color:white;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.5);
+  height: 29.4rem; /* ovo je zaseban plan (recommended) */
+  min-width: 204px;
+}
+
+.plan--annonation {
+  background: white;
+  color:brown;
+  padding: 0.5rem;
+  border-radius: 9px;
+  width: 100%;
+}
+
+.plan-ul {
+  list-style: none ;
+  margin-bottom: 1rem;
+  padding: 0;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.plan-ul li{
+  margin: 0.3rem 0;
+}
+
+.plan__title {
+  color: rgb(82, 2, 2);
+  font-size:1.17rem;
+}
+
+.plan__price {
+  color: rgb(81, 81, 81);
+  font-size: 1.5rem;
+}
+
+.plan-recommended .plan__price {
+  color: #cdcd05;
+}
+
+.plan-recommended .plan__title {
+  color:white;
+}
+
+/* .button_choose:focus {
+  outline: none; ukloniti plavi obris od bordera
+} */
+
+@media (min-width: 40rem) , (orientation: landscape) { /* Ako predje 40rem sirine i ako je landscape primijeni osobine ispod "and" mora ispuniti oba uslova */
+  /* zarez (",") izmedju uslova oznavaca da ako je ispunjen jedan od ova dva zahtjeva primjenjuju se osobine */
+  .bodyofplans { /* plan */
+    display: flex; /* obuhvata sve u svoj blok */
+    justify-content: center; /* da budu vodoravno poredjani na centru */
+    /* flex-direction: row;  da bude u redu jedan pored drugog  */
+    align-items: center; /* isto sto i vertical aling, redja ih po sredini zadrzavajuci dimenzije blokova */
+    width: 100%; /* podesavanje sirine bloka kartica */
+  }
+
+  .plan { /*plan_list*/
+    margin:0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display:inline-block; */
+    width:25%; /* sirina bloka u odnosu na 100% ukupnu sirinu */
+    /* vertical-align: middle; */
+    text-align: center;
+  }
+
+  .plan--annonation { /*hig*/
+      box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.5);
+      text-align: center;
+   }
+}
+
+#key-features {
+  margin-top: 5rem;
+  padding: 1rem;
+  background: rgb(176, 176, 0);
+}
+
+#key-features .section-title {
+  text-align: center;
+  color:black;
+  font-family: 'DynaPuff', cursive;
+  font-size: 1.875rem;
+  height: 0;
+  padding-bottom: 1.563rem;
+}
+
+.key-feature__list {
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* da budu vodoravno poredjani na centru */
+  padding-top: 1.25rem;
+}
+
+.key-feature {
+  /* display: inline-block; */
+  width: 30%;
+  /* vertical-align: top; staviti u isti liniju bez obzira na slaganje teksta ispod */
+}
+
+.key-feature__image {
+  border: 2px solid black;
+  border-radius: 50%; /* zaogrugliti border */
+  width: 128px;
+  height: 128px;
+  background: rgb(205, 205, 183);
+  margin: auto; /* centrirati za lijevo i desno (popunjava) horizontalno */
+  padding: 1.25rem; /*dodati mu razmak na okviru tako da se dodatno smanji*/
+}
+
+.key-feature__description {
+  font-family: 'DynaPuff', cursive;   
+  color: black;
+  font-size: 1.25rem;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center; /* da budu vodoravno poredjani na centru */
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .key-feature {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    }
+  #key-features .section-title {
+    margin-bottom: 6rem;
+    }
+  .key-feature__list {
+    flex-direction: column;
+  }
+}

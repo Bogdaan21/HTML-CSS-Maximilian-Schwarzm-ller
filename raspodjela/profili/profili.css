@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+.naslov-profila {
+  text-align: center;
+}
+
+.lista-profila {
+  text-align: center;
+  list-style: none; /* uklanjanje tackica */
+  padding: 0; /* ukloniti margine da bi bilo sve jednako */
+  margin: 0;
+}
+
+.profil {
+  display: inline-block; /* tekst je u istoj liniji */
+  width: 30%; /* duzina, koliko zauzima od 100% */
+}
+
+.slika-profila {
+  border: 4px solid black;
+  border-radius: 50%; /* krug */
+  width: 120px; /* sirina polja */
+  height: 120px; /* duzina polja */
+  margin: auto; /* centrirati za lijevo i desno (popunjava) horizontalno */
+}
