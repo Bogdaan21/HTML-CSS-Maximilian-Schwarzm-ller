@@ -6,8 +6,8 @@ body {
 .first-head {
   border-bottom: 1px solid silver;
   display: flex;
-  justify-content: space-between;
-  margin: 0 10rem;
+  justify-content: space-around;
+  margin: 0;
   padding: 1rem 0;
 }
 
@@ -57,10 +57,10 @@ body {
 
 .second-head {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1rem 0;
   align-items: center;
-  margin: 0 10rem;
+  margin: 0;
 }
 
 .menu-list {
@@ -596,7 +596,6 @@ b {
   background: rgb(232, 232, 232);
   display: flex;
   padding: 1rem 10rem;
-
 }
 
 .first-stage {
@@ -676,9 +675,9 @@ b {
 .footer {
   background: rgb(232, 232, 232);
   display: flex;
-  padding: 2rem 10rem;
+  padding: 2rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly
 }
 
 .footer img {
