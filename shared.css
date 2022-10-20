@@ -3,6 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'); 
 
+:root {
+  --dominant: #a52a2a; /* imenovali smo boju da bi je posle dolje dodavali kao naziv var(naziv) */
+  /* ovako mozemo nazvati svaku vrstu promjenljive */
+}
+
 * { 
   box-sizing: border-box; /* padding i border se uracunavaju u velicinu polja ali ne i margine (ova komanda to izracunava) */
 }
@@ -47,6 +52,9 @@ main {
   padding: 0.5rem 1rem;
   top: 0; /* da bi bili sigurni da je zalijepljeno za vrh */
   left: 0; /* da bi bili sigurni da je zalijepljeno lijevo */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex; /* ove tri fukncije sluze da sve dobro funkcionise i u starijim pregledacima*/
   position: fixed; /* traka za navigaciju fiksirana za vrh ali nije ugnijezdena, ona ne zavisi od ni jednog elementa nego se fiksira na osnovu Viewport (cijelim html-om) */
   z-index: 1; /* staviti header da bude iznad svih elemenata */
   display: flex;
@@ -57,7 +65,7 @@ main {
 
 .button_choose {
   color:white;
-  background: rgb(58, 5, 5);
+  background: #3a0505;
   border-radius: 9px;
   border: none;
   padding: 0.5rem;
@@ -130,6 +138,7 @@ main {
 
 .nav-item {
   margin: 0 0.625rem;
+  list-style: none;
 }
 
 .nav-items {
@@ -139,7 +148,7 @@ main {
 }
 
 .main_header_name {
-  color:brown;
+  color:#a52a2a;
   text-decoration: none;
   font-weight: bold;
   /* font-size: 1.5rem;  */
@@ -156,7 +165,7 @@ main {
 .nav-item > a, /* Svaki <a> koji se nalazi u klasi .nav-item */
 .mobile-nav__item a {  /* dodjeljivanje istih specifikacija kao na obicnoj navigaciji */
   text-decoration: none;
-  color:brown;
+  color:var(--dominant);
   font-weight: bold;
   padding: 0.2rem 0;
 
@@ -192,7 +201,7 @@ main {
 .nav-item-special a, /*dodata klasa jedna pored druge da bi pokupio sva svojstva prethone, u css se kuca samo novi naziv pored postojeceg*/
 .mobile-nav__item--cta a { 
   color:white;
-  background: brown;
+  background: var(--dominant);
   padding: 0.5rem 1rem;
   border-radius: 9px;
 }
@@ -202,7 +211,7 @@ main {
 .mobile-nav__item--cta a:hover,
 .mobile-nav__item--cta a:active {
   border: none;
-  color:brown;
+  color:var(--dominant);
   background: white;
 }
 

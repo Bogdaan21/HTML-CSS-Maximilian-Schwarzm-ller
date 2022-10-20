@@ -1,0 +1,393 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+}
+
+.main-header {
+  position: fixed;
+  width: 100%;
+  background: #673ab7;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px 2px #4e2b89;
+  z-index: 10;
+}
+
+.main-nav-start .nav-items {
+  display: flex;
+  list-style: none;
+  margin-left: -1.50rem;
+}
+
+.main-nav-end .nav-items {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item-a-img img{
+  height: 20px;
+  vertical-align: top;
+}
+
+.nav-items li a {
+  color:white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-items li a:hover {
+  background: #331d5a;
+  border-radius: 8%;
+}
+
+.nav-item-git img {
+  height: 20px;
+  vertical-align: top;
+  padding-right: 2px;
+}
+
+@media (max-width:40rem) {
+  .main-header {
+    flex-direction: column;
+  }
+  .main-nav-start .nav-items {
+    justify-content: space-around;
+    padding: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .main-nav-end .nav-items {
+    justify-content: space-around;
+    padding: 0;
+  }
+  .crtica-header {
+    border-bottom: 1px solid silver;
+  }
+  .nav-items li a {
+    font-size: 14px;
+  }
+}
+
+.under-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #673ab7;
+  height: 480px;
+  z-index: 1;
+  width: 100%;
+  
+}
+
+.logo-angular {
+  position: absolute;
+  background-image: url("https://material.angular.io/angular-white-transparent.d4d5ed2946afa9f1.svg");
+  background-repeat: no-repeat; 
+  background-position: left 90% top 240px;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.2;
+  background-size: 35rem;
+  z-index: 2;
+}
+
+.under-head h1 {
+  color: white;
+  margin: 7px;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.under-head p {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.under-head button {
+  color: rgb(82, 82, 82);
+  font-size: 15px;
+  padding: 10px 16px;
+  border-radius: 10%;
+  margin-top: 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
+
+@media(max-width: 40rem) {
+  body {
+    width: 100%;
+  }
+  .under-head h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 7rem;
+  }
+  .under-head button {
+    font-size: 1.5rem;
+  }
+  .logo-angular {
+    display: none;
+  }
+}
+
+main {
+  padding: 3% 16%;
+}
+
+.content1 {
+  display: flex;
+  color: rgb(116, 116, 116);
+  border-bottom: 1px solid rgb(116, 116, 116);
+  padding-bottom: 3rem;
+}
+
+.content1 .option {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.option p {
+  line-height: 28px;
+  font-size: 16px;
+}
+
+.content2 {
+  color: rgb(116, 116, 116);
+  border-bottom: 1px solid rgb(116, 116, 116);
+  padding-bottom: 3rem;
+}
+
+.content2 .header {
+  margin-top: 2rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  color:rgb(116, 116, 116);
+}
+
+.header p {
+  cursor: pointer;
+}
+
+.components {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.components p {
+  cursor: pointer;
+}
+
+.components div {
+  width: 100%;
+  text-align: center;
+  margin-left: 2%;
+}
+
+.pictures {
+overflow: hidden;
+}
+
+.pictures img {
+  width: 100%;
+  transition: .4s ease-in-out;
+  cursor: pointer;
+}
+
+.pictures img:hover {
+  transform: scale(1.2);
+}
+
+.content3 {
+  color: rgb(116, 116, 116);
+  padding-bottom: 3rem;
+}
+
+.content3 .header {
+  margin-top: 2rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  color:rgb(116, 116, 116);
+}
+
+.content3 h1 {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.guides {
+  display: flex;
+  text-align: center;
+}
+
+.guides > div {
+  width: 100%;
+  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+  background: white;
+  margin-left: 2%;
+  border-radius: 6%;
+  cursor: pointer;
+  padding: 1rem 0.6rem;
+  transition: .4s ease-in-out;
+}
+
+.guides > div:hover {
+  background: #0003;
+}
+
+.guides h2 {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.crtica {
+  width: 30%;
+  height: 5px;
+  background: #ffd740;
+  margin: 15px auto;
+}
+
+.sponsore {
+  text-align: center;
+}
+
+.sponsere-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.sponsere-list li {
+  text-align: center;
+  width: 100%;
+}
+
+.picture-logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.picture-logo h3 {
+  margin-bottom: 1px;
+}
+
+.picture-logo p {
+  margin-top: 8px;
+  color:rgb(116, 116, 116);
+  font-size: 14px;
+}
+
+b {
+  cursor: pointer;
+}
+
+@media (max-width: 40rem) {
+  .content1 {
+    flex-direction: column;
+  }
+  .sponsere-list {
+    flex-direction: column;
+  }
+  .picture-logo p {
+    display: none;
+  }
+  .picture-logo {
+    display: flex;
+    margin: 1rem 0;
+  }
+  .picture-logo img {
+    margin-right: 1rem;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.main-footer {
+  color: white;
+  display: flex;
+  background: #673ab7;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.main-footer div {
+  padding: 18px;
+  display: flex;
+}
+
+.logo-angular-footer a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logo-angular-footer a:hover {
+  text-decoration: underline;
+}
+
+.logo-angular-footer a img{
+  height: 50px;
+  margin-right: 2rem;
+  cursor:auto;
+}
+
+.image-version-logo {
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.image-version-logo a {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.image-version-logo a img {
+  height: 40px;
+  margin-right: 2rem;
+}
+
+.paragraph {
+  display: flex;
+  flex-direction: column;
+}
+
+.paragraph a {
+  font-size: 12px;
+  align-self: flex-end;
+}
+
+@media (max-width: 40rem) {
+  .main-footer {
+  flex-direction: column;
+  }
+  .main-footer div {
+    justify-content: center;
+  }
+  .paragraph a {
+    align-self: center;
+  }
+}
