@@ -179,6 +179,8 @@ body {
   .search-mobile i {
     background: white;
     color: #003845;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .mobil-nav-list {
@@ -355,8 +357,7 @@ input {
     padding: 1rem;
   }
   .info-4,
-  .info-5,
-  .info-6 {
+  .info-5 {
     border-bottom: 1px solid silver;
   }
 }
@@ -384,12 +385,13 @@ input {
   .covid-list {
     flex-direction: column;
     padding: 1rem;
+    padding-top: 4rem;
   }
 
   .covid-item {
     display: flex;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid silver;
+    padding-top: 1rem;
+    border-top: 1px solid silver;
   }
 
   .covid-image img {
@@ -531,7 +533,7 @@ input {
 
 .contact {
   display: flex;
-  padding: 1rem 10rem;
+  padding: 1rem 5rem;
 }
 
 .adress {
@@ -539,7 +541,7 @@ input {
 }
 
 .adress p {
-  line-height: 10px;
+  line-height: 19px;
 }
 
 .insert-send {
@@ -601,7 +603,7 @@ b {
 .first-stage {
   width: 50%;
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   border-bottom: 1px solid silver;
 }
 
